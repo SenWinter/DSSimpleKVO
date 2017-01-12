@@ -3,6 +3,19 @@
 #### 一、介绍
 本篇文章是介绍的是一种KVO是使用Block方式进行回调的一种实现方式。
 使用这种方式可以：更方便的使用KVO，可以利用到很多场景，进行更简单响应编程，可以进行视图和Model的一种绑定关系。
+
+### 使用方法：
+1，Block回调
+```
+[self.data bindingWithKeyPath:@"number" WithBlock:^(id newValue, id oldValue) {
+self.label.text = [self.label.text setStr:newValue];
+}];
+```
+2，自动改变对应属性
+```
+[self.data bindingWithKeyPath:@"number" controlObjc:self.label objcKey:@"text" sync:NO]; 
+```
+
 #####调用方式举例：
 ```
 UILabel *label = [[UILabel alloc]init];
@@ -586,4 +599,4 @@ return ffloat || iint;
 ```
 
 ###四、最后
-gitHub链接地址:
+gitHub链接地址:https://github.com/SenWinter/DSSimpleKVO
